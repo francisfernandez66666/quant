@@ -1,0 +1,32 @@
+#!/bin/sh
+APP_NAME="Gradle"
+APP_BASE_NAME=`basename "$0"`
+
+# Use script location as APP_HOME
+PRG="$0"
+while [ -h "$PRG" ] ; do
+  ls=`ls -ld "$PRG"`
+  link=`expr "$ls" : '.*-> \(.*\)$'`
+  if expr "$link" : '/.*' > /dev/null; then
+    PRG="$link"
+  else
+    PRG=`dirname "$PRG"`/"$link"
+  fi
+done
+APP_HOME=`dirname "$PRG"`
+cd "$APP_HOME"
+APP_HOME=`pwd`
+
+CLASSPATH="$APP_HOME/gradle/wrapper/gradle-wrapper.jar"
+export JAVA_HOME=/opt/homebrew/opt/openjdk@17
+
+JAVACMD="$JAVA_HOME/bin/java"
+if [ ! -x "$JAVACMD" ] ; then
+  JAVACMD="java"
+  which java >/dev/null 2>&1 || die "ERROR: JAVA_HOME is not set"
+fi
+
+exec "$JAVACMD" -Xmx64m -Xms64m $JAVA_OPTS $GRADLE_OPTS \
+  "-Dorg.gradle.appname=$APP_BASE_NAME" \
+  -classpath "$CLASSPATH" \
+  org.gradle.wrapper.GradleWrapperMain "$@"

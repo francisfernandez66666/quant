@@ -1,0 +1,55 @@
+# Local project docs — 不上传
+AGENTS.md
+PROJECT_DOCUMENT.md
+
+# Strategy/PRD docs
+PRD_combined.md
+DEPLOY.md
+docs/
+tests/*.md
+n形战法策略信息补充.md
+
+# Config (secrets + strategy params)
+config/rules.json
+config/events_leftside.yaml
+config/secrets*
+config/*.example
+
+# Cache / data
+jq_cache_240d/
+bs_cache/
+stock\ kline/
+debug/
+tests/daily_results/
+tests/testdata/
+custom_watchlist.json
+holdings.json
+*.csv
+
+# Android build artifacts
+android/app/build/
+android/app/.gradle/
+android/.gradle/
+android/app/build/intermediates/
+android/build/
+*.apk
+
+# Node / npm
+web/node_modules/
+desktop/node_modules/
+android/web/node_modules/
+web/dist/
+desktop/dist/
+android/web/dist/
+
+# Build output
+quant_agent
+quant
+quant_fix
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+opencode.json
